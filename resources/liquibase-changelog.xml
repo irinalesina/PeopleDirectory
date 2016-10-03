@@ -20,5 +20,85 @@
             DROP TABLE test_liquibase
         </sql>
     </changeSet>
+    <changeSet id="irina-2016-10-02-02" author="irina">
+        <comment>Create table user_account</comment>
+        <sql>
+            CREATE TABLE `user_account` (
+            `id` int(11) NOT NULL,
+            `login` varchar(45) NOT NULL,
+            `password` varchar(45) NOT NULL,
+            `modify_data` timestamp(6) NULL DEFAULT NULL,
+            PRIMARY KEY (`id`)
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="irina-2016-10-02-02" author="irina">
+        <comment>Create table employee</comment>
+        <sql>
+            CREATE TABLE `employee` (
+            `id` int(11) NOT NULL,
+            `access_code` varchar(45) DEFAULT NULL,
+            `salary` int(11) DEFAULT NULL,
+            `position` varchar(45) NOT NULL,
+            PRIMARY KEY (`id`)
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="irina-2016-10-02-02" author="irina">
+        <comment>Create table user</comment>
+        <sql>
+            CREATE TABLE `user` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `first_name` varchar(45) NOT NULL,
+            `last_name` varchar(45) NOT NULL,
+            `phone` varchar(20) DEFAULT NULL,
+            `birthday` date DEFAULT NULL,
+            `sex` varchar(5) NOT NULL,
+            `address` varchar(100) DEFAULT NULL,
+            `email` varchar(45) DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            UNIQUE KEY `login_UNIQUE` (`first_name`),
+            CONSTRAINT `employee_fk` FOREIGN KEY (`id`) REFERENCES `employee` (`id`),
+            CONSTRAINT `user_account_fk` FOREIGN KEY (`id`) REFERENCES `user_account` (`id`)
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="irina-2016-10-02-02" author="irina">
+        <comment>Create table friend</comment>
+        <sql>
+            CREATE TABLE `friend` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `use_id` int(11) NOT NULL,
+            `friend_id` int(11) NOT NULL,
+            PRIMARY KEY (`id`),
+            CONSTRAINT `friend_fk` FOREIGN KEY (`friend_id`) REFERENCES `user` (`id`),
+            CONSTRAINT `user_fk` FOREIGN KEY (`use_id`) REFERENCES `user` (`id`)
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="irina-2016-10-02-02" author="irina">
+        <comment>Create table company</comment>
+        <sql>
+            CREATE TABLE `company` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `name` varchar(45) NOT NULL,
+            `address` varchar(45) DEFAULT NULL,
+            PRIMARY KEY (`id`)
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="irina-2016-10-02-02" author="irina">
+        <comment>Create table company_employee</comment>
+        <sql>
+            CREATE TABLE `company_employee` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `company_id` int(11) NOT NULL,
+            `employee_id` int(11) NOT NULL,
+            PRIMARY KEY (`id`),
+            CONSTRAINT `company_fk` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
+            CONSTRAINT `fk_employee` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`)
+            )
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>

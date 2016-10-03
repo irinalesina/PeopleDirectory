@@ -1,13 +1,13 @@
 package com.irina.data.entity;
 
 
-import java.sql.Date;
+import java.util.Date;
 
 public class UserAccount {
     private int id;
     private String name;
     private String password;
-    private Date modifyData;
+    private Date modifyDate;
 
     public int getId(){
         return id;
@@ -19,7 +19,7 @@ public class UserAccount {
         return password;
     }
     public Date getModifyData(){
-        return modifyData;
+        return modifyDate;
     }
 
     public void setName(String name){
@@ -29,7 +29,7 @@ public class UserAccount {
         this.password = password;
     }
     public void setModifyData(Date modifyData){
-        this.modifyData = modifyData;
+        this.modifyDate = modifyData;
     }
 
 }
