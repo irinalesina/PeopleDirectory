@@ -5,8 +5,9 @@
 ```sql
 CREATE DATABASE people DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 ```
-2. Apply database changes via script:
+2. Edit Liquibase properties file (resources/liquibase.properties) for your environment.
+3. Apply database changes via script:
 ```
-on Linux:    scripts/liquibase-run.sh <db_username> <db_password>
-on Windows:  scripts/liquibase-run.bat <db_username> <db_password>
+on Linux:    scripts/liquibase-run.sh
+on Windows:  scripts/liquibase-run.bat
 ```

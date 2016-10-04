@@ -1,18 +1,18 @@
 @echo off
 
-set USERNAME="%1"
-set PASSWORD="%2"
-
 set CUR_DIR=%~dp0
-set LIB_DIR=%CUR_DIR%/../lib
+set LIB_DIR=%CUR_DIR%\..\lib
+set RESOURCES_DIR=%CUR_DIR%\..\resources
 
-set CLASSPATH="%LIB_DIR%/liquibase.jar;%LIB_DIR%/mysql-connector-java-5.1.34.jar"
+set CLASSPATH="%LIB_DIR%\liquibase.jar;%LIB_DIR%\mysql-connector-java-5.1.34.jar"
 
-java -jar "%LIB_DIR%/liquibase.jar" ^
+set PROPERTIES_FILE=%RESOURCES_DIR%\liquibase.properties
+if "%1" NEQ "" (
+	set PROPERTIES_FILE=%1
+)
+
+java -jar "%LIB_DIR%\liquibase.jar" ^
 	--classpath="%CLASSPATH%" ^
-	--changeLogFile="%CUR_DIR%/../resources/liquibase-changelog.xml" ^
-	--driver="com.mysql.jdbc.Driver" ^
-	--url="jdbc:mysql://localhost:3306/people" ^
-    --username="%USERNAME%" ^
-    --password="%PASSWORD%" ^
+	--defaultsFile="%PROPERTIES_FILE%" ^
+	--changeLogFile="%RESOURCES_DIR%\liquibase-changelog.xml" ^
 	update

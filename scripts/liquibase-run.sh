@@ -12,19 +12,17 @@ set -e
 # then bash will return exit code of cmd2 command instead cmd3.
 set -o pipefail
 
-USERNAME="$1"
-PASSWORD="$2"
-
 CUR_DIR="$(pwd)"
 LIB_DIR="$CUR_DIR/../lib"
+RESOURCES_DIR="$CUR_DIR/../resources"
 
 CLASSPATH="$LIB_DIR/liquibase.jar:$LIB_DIR/mysql-connector-java-5.1.34.jar"
 
+# if "$1" isn't set then use default value
+PROPERTIES_FILE=${1:-$RESOURCES_DIR/liquibase.properties}
+
 java -jar "$LIB_DIR/liquibase.jar" \
 	--classpath="$CLASSPATH" \
-	--changeLogFile="$CUR_DIR/../resources/liquibase-changelog.xml" \
-	--driver="com.mysql.jdbc.Driver" \
-	--url="jdbc:mysql://localhost:3306/people" \
-    --username="$USERNAME" \
-    --password="$PASSWORD" \
+	--defaultsFile="$PROPERTIES_FILE" \
+	--changeLogFile="$RESOURCES_DIR/liquibase-changelog.xml" \
 	update
