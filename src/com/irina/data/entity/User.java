@@ -1,9 +1,10 @@
-package com.irina.data.entity;
+package src.com.irina.data.entity;
+
 
 
 import java.util.Date;
 
-public class User {
+public class User extends IEntity {
     private int id;
     private String firstName;
     private String lastName;
@@ -43,6 +44,10 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setFirstName(String firstName) {
