@@ -20,7 +20,7 @@
             DROP TABLE test_liquibase
         </sql>
     </changeSet>
-    <changeSet id="irina-2016-10-02-02" author="irina">
+    <changeSet id="irina-2016-10-02-03" author="irina">
         <comment>Create table user_account</comment>
         <sql>
             CREATE TABLE `user_account` (
@@ -32,7 +32,7 @@
             )
         </sql>
     </changeSet>
-    <changeSet id="irina-2016-10-02-02" author="irina">
+    <changeSet id="irina-2016-10-02-04" author="irina">
         <comment>Create table employee</comment>
         <sql>
             CREATE TABLE `employee` (
@@ -44,7 +44,7 @@
             )
         </sql>
     </changeSet>
-    <changeSet id="irina-2016-10-02-02" author="irina">
+    <changeSet id="irina-2016-10-02-05" author="irina">
         <comment>Create table user</comment>
         <sql>
             CREATE TABLE `user` (
@@ -63,7 +63,7 @@
             )
         </sql>
     </changeSet>
-    <changeSet id="irina-2016-10-02-02" author="irina">
+    <changeSet id="irina-2016-10-02-06" author="irina">
         <comment>Create table friend</comment>
         <sql>
             CREATE TABLE `friend` (
@@ -76,7 +76,7 @@
             )
         </sql>
     </changeSet>
-    <changeSet id="irina-2016-10-02-02" author="irina">
+    <changeSet id="irina-2016-10-02-07" author="irina">
         <comment>Create table company</comment>
         <sql>
             CREATE TABLE `company` (
@@ -87,7 +87,7 @@
             )
         </sql>
     </changeSet>
-    <changeSet id="irina-2016-10-02-02" author="irina">
+    <changeSet id="irina-2016-10-02-08" author="irina">
         <comment>Create table company_employee</comment>
         <sql>
             CREATE TABLE `company_employee` (
