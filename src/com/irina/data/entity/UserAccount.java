@@ -1,4 +1,4 @@
-package com.irina.data.entity;
+package src.com.irina.data.entity;
 
 
 import java.util.Date;
@@ -22,6 +22,9 @@ public class UserAccount {
         return modifyDate;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setName(String name){
         this.name = name;
     }
