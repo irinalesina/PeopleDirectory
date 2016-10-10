@@ -4,7 +4,7 @@ package src.com.irina.data.entity;
 
 import java.util.Date;
 
-public class User extends IEntity {
+public class User {
     private int id;
     private String firstName;
     private String lastName;
