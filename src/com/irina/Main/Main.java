@@ -1,6 +1,5 @@
-package src.com.irina.Main;
+package com.irina.Main;
 
-import src.com.irina.data.dao.*;
 
 // creted to test dao
 public class Main {

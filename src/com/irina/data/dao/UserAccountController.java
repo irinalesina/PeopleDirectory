@@ -1,6 +1,6 @@
-package src.com.irina.data.dao;
+package com.irina.data.dao;
 
-import src.com.irina.data.entity.*;
+import com.irina.data.entity.*;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +28,7 @@ public class UserAccountController extends AbstractController<UserAccount, Integ
                 userAccount.setId(rs.getInt("id"));
                 userAccount.setName(rs.getString("name"));
                 userAccount.setPassword(rs.getString("password"));
-                userAccount.setModifyData(rs.getDate("modify_date"));
+                userAccount.setModifyDate(rs.getDate("modify_date"));
                 list.add(userAccount);
             }
         } catch (SQLException e) {
@@ -47,7 +47,7 @@ public class UserAccountController extends AbstractController<UserAccount, Integ
         try {
             ps.setString(1, entity.getName());
             ps.setString(2, entity.getPassword());
-            ps.setDate(3, (Date) entity.getModifyData());
+            ps.setDate(3, (Date) entity.getModifyDate());
             ps.setInt(4, entity.getId());
 
             updateResult = ps.executeUpdate() != 0;
@@ -72,7 +72,7 @@ public class UserAccountController extends AbstractController<UserAccount, Integ
             userAccount.setId(rs.getInt("id"));
             userAccount.setName(rs.getString("name"));
             userAccount.setPassword(rs.getString("password"));
-            userAccount.setModifyData(rs.getDate("modify_date"));
+            userAccount.setModifyDate(rs.getDate("modify_date"));
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -104,7 +104,7 @@ public class UserAccountController extends AbstractController<UserAccount, Integ
         try {
             ps.setString(1, entity.getName());
             ps.setString(2, entity.getPassword());
-            ps.setDate(3, (Date) entity.getModifyData());
+            ps.setDate(3, (Date) entity.getModifyDate());
 
             createResult = ps.executeUpdate() != 0;
         } catch (SQLException e) {

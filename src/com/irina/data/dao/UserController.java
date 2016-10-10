@@ -1,6 +1,6 @@
-package src.com.irina.data.dao;
+package com.irina.data.dao;
 
-import src.com.irina.data.entity.*;
+import com.irina.data.entity.*;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
