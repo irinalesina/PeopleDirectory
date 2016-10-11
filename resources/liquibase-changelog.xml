@@ -33,18 +33,6 @@
         </sql>
     </changeSet>
     <changeSet id="irina-2016-10-02-04" author="irina">
-        <comment>Create table employee</comment>
-        <sql>
-            CREATE TABLE `employee` (
-            `id` int(11) NOT NULL,
-            `access_code` varchar(45) DEFAULT NULL,
-            `salary` int(11) DEFAULT NULL,
-            `position` varchar(45) NOT NULL,
-            PRIMARY KEY (`id`)
-            )
-        </sql>
-    </changeSet>
-    <changeSet id="irina-2016-10-02-05" author="irina">
         <comment>Create table user</comment>
         <sql>
             CREATE TABLE `user` (
@@ -56,10 +44,24 @@
             `sex` varchar(5) NOT NULL,
             `address` varchar(100) DEFAULT NULL,
             `email` varchar(45) DEFAULT NULL,
+            'user_account_id' int(11) DEFAULT NULL,
             PRIMARY KEY (`id`),
             UNIQUE KEY `login_UNIQUE` (`first_name`),
-            CONSTRAINT `employee_fk` FOREIGN KEY (`id`) REFERENCES `employee` (`id`),
-            CONSTRAINT `user_account_fk` FOREIGN KEY (`id`) REFERENCES `user_account` (`id`)
+            CONSTRAINT `user_account_fk` FOREIGN KEY (`user_account_id`) REFERENCES `user_account` (`id`)
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="irina-2016-10-02-05" author="irina">
+        <comment>Create table employee</comment>
+        <sql>
+            CREATE TABLE `employee` (
+            `id` int(11) NOT NULL,
+            `access_code` varchar(45) DEFAULT NULL,
+            `salary` int(11) DEFAULT NULL,
+            `position` varchar(45) NOT NULL,
+            'user_id' int(11) DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            CONSTRAINT `employee_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
             )
         </sql>
     </changeSet>
@@ -68,11 +70,11 @@
         <sql>
             CREATE TABLE `friend` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
-            `use_id` int(11) NOT NULL,
+            `user_id` int(11) NOT NULL,
             `friend_id` int(11) NOT NULL,
             PRIMARY KEY (`id`),
             CONSTRAINT `friend_fk` FOREIGN KEY (`friend_id`) REFERENCES `user` (`id`),
-            CONSTRAINT `user_fk` FOREIGN KEY (`use_id`) REFERENCES `user` (`id`)
+            CONSTRAINT `user_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
             )
         </sql>
     </changeSet>
