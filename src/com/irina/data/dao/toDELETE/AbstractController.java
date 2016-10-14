@@ -1,4 +1,4 @@
-package com.irina.data.dao;
+package com.irina.data.dao.toDELETE;
 
 import com.irina.data.entity.Entity;
 

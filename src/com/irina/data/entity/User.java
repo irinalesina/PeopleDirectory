@@ -4,8 +4,7 @@ package com.irina.data.entity;
 
 import java.util.Date;
 
-public class User implements Entity {
-    private int id;
+public class User extends Entity {
     private String firstName;
     private String lastName;
     private String phone;
@@ -15,14 +14,6 @@ public class User implements Entity {
     private String email;
     private int userAccountId;
 
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -86,10 +77,5 @@ public class User implements Entity {
 
     public void setUserAccountId(int userAccountId) {
         this.userAccountId = userAccountId;
-    }
-
-    @Override
-    public String getEntityName(){
-        return "user";
     }
 }

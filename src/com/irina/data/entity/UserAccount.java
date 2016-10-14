@@ -3,20 +3,10 @@ package com.irina.data.entity;
 
 import java.util.Date;
 
-public class UserAccount implements Entity {
-    private int id;
+public class UserAccount extends Entity {
     private String name;
     private String password;
     private Date modifyDate;
-
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -40,10 +30,5 @@ public class UserAccount implements Entity {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
-    }
-
-    @Override
-    public String getEntityName() {
-        return "user_account";
     }
 }
