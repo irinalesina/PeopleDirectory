@@ -1,5 +1,5 @@
 package com.irina.data.dao;
 
 
-public interface UserDAO {
+public interface UserDAO extends DAO{
 }

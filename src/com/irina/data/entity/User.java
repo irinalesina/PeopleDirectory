@@ -1,7 +1,5 @@
 package com.irina.data.entity;
 
-
-
 import java.util.Date;
 
 public class User extends Entity {
